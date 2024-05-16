@@ -23,10 +23,10 @@ create table R_ingresos (
     Fecha_Hora datetime
 );
 Insert into datos(Nombre_Apellido,Usuarios,Fecha_registro,Ultima_conexion) 
-values ('Py Fry','Fry3316',curdate(),now());
+values ('Franz Fry','Fry3320',curdate(),now());
 
 Insert into R_ingresos(Usuarios,Fecha_Hora)
-values ('Fry3316',now());
+values ('Fry3320',now());
 
 drop view vista;
 create view vista as 
@@ -51,6 +51,6 @@ values (usuario,now());
 end //
 delimiter ;
 
-call registrar_i ('Fry3313');
+call registrar_i ('Fry3320');
 select * from R_ingresos;
-select Nombre from vista;
+select * from vista;
