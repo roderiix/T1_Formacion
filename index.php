@@ -66,34 +66,23 @@
                         <tbody>
                             <?php
                             include 'config.php';
-                            
-                                // SE REALIZA LA CONEXION
-                                $conn = new mysqli("localhost", "root", "rodrigo0201");
-                                if ($conn->connect_error)  {
-                                die("Connection failed: " . $conn->connect_error);
-                                }       /* else {
-                                echo "conexion exitosa";
-                                } */
-
 
                                 // llamar tabla
                                 $sql = "select * from vista;";
                                 $result = $conn->query($sql);
-
+                                
                                 while ( $row = $result->fetch_assoc() ){
                                 echo "<tr>
-                                    <td><h3>".$row["Usuarios"]."</p></h3></td>
-                                    <td><h3>".$row["Ultima_conexion"]."</h3></td>
-                                    <td><h3>".$row["Fecha_registro"]."</h3></td>
-                                    <td><h3>".$row["Nombre_Apellido"]."</h3></td>
-                                    <td><h3>".$row["Numeracion"]."</h3></td>
-                                    <td><h3>".$row["Fecha_Hora"]."</h3></td>";
+                                    <td><h5>".$row["Usuarios"]."</p></h5></td>
+                                    <td><h5>".$row["Ultima_conexion"]."</h5></td>
+                                    <td><h5>".$row["Fecha_registro"]."</h5></td>
+                                    <td><h5>".$row["Nombre_Apellido"]."</h5></td>
+                                    <td><h5>".$row["Numeracion"]."</h5></td>
+                                    <td><h5>".$row["Fecha_Hora"]."</h5></td>";
 
                 
                                 //echo "<td><h1>".$row["hire_date"]."</h1></td>
-                                echo "<td><button type='button'><h1>".$row["hire_date"]."</h1></button></td>
-                
-                            </tr>";
+                                echo "</tr>";
     }
 
                             //CERRAR LA CONEXION
