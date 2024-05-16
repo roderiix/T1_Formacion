@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -29,7 +31,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="#">Franzber</a>
+                    <a class="navbar-brand" href="index.php">Franzber</a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
@@ -37,10 +39,10 @@
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item" >
-                            <a class="nav-link active" aria-current="page" href="iniciar_Sesion.html" >Iniciar Sesion</a>
+                            <a class="nav-link active" aria-current="page" href="iniciar_Sesion.php" >Iniciar Sesion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Crear_cuenta.html">Crear Cuenta</a>
+                            <a class="nav-link" href="Crear_cuenta.php">Crear Cuenta</a>
                         </li>
                     </ul>
                 </div>
@@ -53,19 +55,20 @@
                     <table class="table table-dark table-striped">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Usuario</th>
                             <th scope="col">Ultima conexion</th>
                             <th scope="col">Fecha registro</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Numeracion</th>
+                            <th scope="col">Fecha_Hora</th>
                           </tr>
                         </thead>
                         <tbody>
                             <?php
-
+                            include 'config.php';
+                            
                                 // SE REALIZA LA CONEXION
-                                $conn = new mysqli("localhost", "root", "pass123456");
+                                $conn = new mysqli("localhost", "root", "rodrigo0201");
                                 if ($conn->connect_error)  {
                                 die("Connection failed: " . $conn->connect_error);
                                 }       /* else {
@@ -74,24 +77,24 @@
 
 
                                 // llamar tabla
-                                $sql = "select * from employees.employees limit 20";
+                                $sql = "select * from vista;";
                                 $result = $conn->query($sql);
 
                                 while ( $row = $result->fetch_assoc() ){
                                 echo "<tr>
-                                    <td><h1>".$row["emp_no"]."</p></h1></td>
-                                    <td><h1>".$row["birth_date"]."</h1></td>
-                                    <td><h1>".$row["first_name"]."</h1></td>
-                                    <td><h1>".$row["last_name"]."</h1></td>";
+                                    <td><h3>".$row["Usuarios"]."</p></h3></td>
+                                    <td><h3>".$row["Ultima_conexion"]."</h3></td>
+                                    <td><h3>".$row["Fecha_registro"]."</h3></td>
+                                    <td><h3>".$row["Nombre_Apellido"]."</h3></td>
+                                    <td><h3>".$row["Numeracion"]."</h3></td>
+                                    <td><h3>".$row["Fecha_Hora"]."</h3></td>";
+
                 
                                 //echo "<td><h1>".$row["hire_date"]."</h1></td>
                                 echo "<td><button type='button'><h1>".$row["hire_date"]."</h1></button></td>
                 
                             </tr>";
     }
-
-
-
 
                             //CERRAR LA CONEXION
                             $conn->close();
