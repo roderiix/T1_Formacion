@@ -22,35 +22,29 @@ create table R_ingresos (
     Usuarios varchar(25) not null,
     Fecha_Hora datetime
 );
-Insert into datos(Nombre_Apellido,Usuarios,Fecha_registro,Ultima_conexion) 
-values ('Franz Fry','Fry3320',curdate(),now());
-
-Insert into R_ingresos(Usuarios,Fecha_Hora)
-values ('Fry3320',now());
 
 drop view vista;
 create view vista as 
-select d.Usuarios, date(d.Ultima_conexion), d.Fecha_registro, substring_index(d.Nombre_Apellido, ' ', 1)as Nombre, r.Numeracion, r.Fecha_Hora 
+select d.Usuarios, date(d.Ultima_conexion) as Ult, d.Fecha_registro, substring_index(d.Nombre_Apellido, ' ', 1)as Nombre, r.Numeracion, r.Fecha_Hora 
 from datos as d, (select Usuarios, max(Fecha_Hora) as Fh from r_ingresos group by Usuarios) as ri, R_ingresos as r
- where d.Usuarios=ri.Usuarios  and r.Fecha_Hora=ri.Fh;
+where d.Usuarios=ri.Usuarios  and r.Fecha_Hora=ri.Fh;
 
-create view vista as 
-select d.Usuarios, date(d.Ultima_conexion) as Ultima_conexion, d.Fecha_registro, SUBSTRING_INDEX(d.Nombre_Apellido, ' ', 1) as Primer_Nombre, r.Numeracion, r.Fecha_Hora 
-from datos as d
-inner join (select Usuarios, max(Fecha_Hora) as Ultima_conexion from R_ingresos group by Usuarios) as ri on d.Usuarios = r_max.Usuarios
-inner join R_ingresos as r on r.Usuarios = ri.Usuarios and r.Fecha_Hora = ri.Ultima_conexion;
-select * from vista;
 
 delimiter //
-create procedure registrar_i(in usuario varchar(25))
-begin 
-Insert into R_ingresos(Usuarios,Fecha_Hora)
-values (usuario,now());
+create procedure registrar_d(in usuario varchar(25), in Nombre_Apellido varchar(50), in Contraseña varchar(25) )
+begin
 
+    Insert into R_ingresos(Usuarios,Fecha_Hora)
+    values (usuario,now());
+
+    Insert into datos(Nombre_Apellido,Usuarios,Fecha_registro,Ultima_conexion)
+    values (Nombre_Apellido,usuario,now(),now());
+
+    Insert into cuentas(Usuarios,Contraseña)
+    values (usuario,Contraseña);
 
 end //
 delimiter ;
-
-call registrar_i ('Fry3320');
+call registrar_d('roderiix','rodrigo candia','asdasd');
 select * from R_ingresos;
 select * from vista;

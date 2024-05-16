@@ -74,9 +74,9 @@
                                 while ( $row = $result->fetch_assoc() ){
                                 echo "<tr>
                                     <td><h5>".$row["Usuarios"]."</p></h5></td>
-                                    <td><h5>".$row["Ultima_conexion"]."</h5></td>
+                                    <td><h5>".$row["Ult"]."</h5></td>
                                     <td><h5>".$row["Fecha_registro"]."</h5></td>
-                                    <td><h5>".$row["Nombre_Apellido"]."</h5></td>
+                                    <td><h5>".$row["Nombre"]."</h5></td>
                                     <td><h5>".$row["Numeracion"]."</h5></td>
                                     <td><h5>".$row["Fecha_Hora"]."</h5></td>";
 

@@ -42,19 +42,19 @@
         </nav>
             <h2 style="color: aliceblue; text-align: center;">Crear Cuenta</h2>
             <div style="background-color: rgba(0, 0, 0, 0.6); border: solid white 1px; width: 800px; margin: auto; margin-bottom: 40px;">
-                <form style="text-align: center;">
+                <form style="text-align: center;" method="POST" action="registrar.php">
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label" style="color: aliceblue; margin-top: 30px;">Nombre y Apellido</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="width: 600px; margin: auto; margin-bottom: 30px;"> 
+                      <label for="Nombre_Apellido" class="form-label" style="color: aliceblue; margin-top: 30px;">Nombre y Apellido</label>
+                      <input type="text" class="form-control" name="nombre_apellido" aria-describedby="emailHelp" style="width: 600px; margin: auto; margin-bottom: 30px;" require> 
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label" style="color: aliceblue; margin-top: 30px;">Nombre de Usuario</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="width: 600px; margin: auto; margin-bottom: 30px;">
+                        <label for="Usuario" class="form-label" style="color: aliceblue; margin-top: 30px;">Nombre de Usuario</label>
+                        <input type="text" class="form-control" name="usuario" aria-describedby="emailHelp" style="width: 600px; margin: auto; margin-bottom: 30px;" require>
                         
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label" style="color: aliceblue;  margin-top: 30px;">ContraseÃ±a</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" style="width: 600px; margin: auto; margin-bottom: 30px;">
+                        <label for="contraseña" class="form-label" style="color: aliceblue;  margin-top: 30px;">Contraseña</label>
+                        <input type="password" class="form-control" name="contraseña" style="width: 600px; margin: auto; margin-bottom: 30px;" require>
                       </div>
                     <button type="submit" class="btn btn-primary" style="margin-bottom: 30px;">Registrar</button>
                   </form>
