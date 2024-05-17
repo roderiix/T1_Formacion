@@ -59,8 +59,9 @@
                             <th scope="col">Ultima conexion</th>
                             <th scope="col">Fecha registro</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Numeracion</th>
+                            <th scope="col">Indice</th>
                             <th scope="col">Fecha_Hora</th>
+                            <th scope="col">Eliminar</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -82,7 +83,9 @@
 
                 
                                 //echo "<td><h1>".$row["hire_date"]."</h1></td>
-                                echo "</tr>";
+                                echo "<td><button type='button' class='btn btn-outline-danger' onclick=\"location.href='eliminar.php?Usuario=".$row['Usuarios']."'\">Eliminar</button></td>
+                                
+                                </tr>";
     }
 
                             //CERRAR LA CONEXION
@@ -96,5 +99,6 @@
             </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</script>
 </body>
 </html>

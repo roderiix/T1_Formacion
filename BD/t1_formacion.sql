@@ -19,7 +19,7 @@ drop table if exists R_ingresos;
 
 create table R_ingresos (
     Numeracion int auto_increment primary key,
-    Usuarios varchar(25)  not null unique,
+    Usuarios varchar(25)  not null,
     Fecha_Hora datetime
 );
 
@@ -45,19 +45,49 @@ begin
 
 end //
 delimiter ;
-call registrar_d('roderiix','rodrigo candia','asdasd');
-select * from R_ingresos;
-select * from vista;
-select contraseña from cuentas;
-select * from cuentas;
-drop procedure registrar_i;
+drop procedure reg;
 delimiter //
-create procedure registrar_i(in usuario varchar(25) )
+create procedure reg(in usuario varchar(25))
 begin
 
-    Insert into R_ingresos(Usuarios,Fecha_Hora)
+    Insert into rup(Usuarios,Fecha_Hora)
     values (usuario,now());
+
 end //
 delimiter ;
-call registrar_i ('roderiix');
+
+drop table rup;
+create table rup(
+	Numeracion int auto_increment primary key,
+    Usuarios varchar(25),
+    Fecha_Hora datetime
+);
+
+drop trigger registrar_i;
+DELIMITER //
+
+CREATE TRIGGER registrar_i 
+AFTER INSERT ON rup
+FOR EACH ROW
+BEGIN
+    INSERT INTO r_registros (Usuarios, Fecha_Hora)
+    VALUES (NEW.Usuarios, NOW());
+END //
+
+DELIMITER ;
+
+drop procedure death;
+delimiter //
+create procedure death(in usuario varchar(25))
+begin
+	delete from vista where Usuarios = usuario;
+    delete from cuentas where Usuarios = usuario;
+    delete from r_registros where Usuarios = usuario;
+
+end //
+delimiter ;
+
+select * from cuentas ;
+select * from r_ingresos;
 select * from datos;
+select * from vista;
