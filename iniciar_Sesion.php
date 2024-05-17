@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script>
+        function showError() {
+            alert("Contraseña incorrecta. Por favor, inténtalo de nuevo.");
+        }
+    </script>
     <title>Formacion 1</title>
     <style>
         body{
@@ -42,15 +47,15 @@
         </nav>
             <h2 style="color: aliceblue; text-align: center;">Iniciar Sesion</h2>
             <div style="background-color: rgba(0, 0, 0, 0.6); border: solid white 1px; width: 800px; margin: auto; margin-bottom: 40px;">
-                <form style="text-align: center;">
+                <form style="text-align: center;" method='post' action='login.php'>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label" style="color: aliceblue; margin-top: 30px;">User</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="width: 600px; margin: auto; margin-bottom: 30px;">
+                      <input type="txt" class="form-control" name="usuario" aria-describedby="emailHelp" style="width: 600px; margin: auto; margin-bottom: 30px;"require>
                       
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label" style="color: aliceblue;">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" style="width: 600px; margin: auto;">
+                      <input type="password" class="form-control" name="contrasena" style="width: 600px; margin: auto;"require>
                     </div>
                     <button type="submit" class="btn btn-primary" style="margin-bottom: 30px;">Iniciar Sesion</button>
                   </form>

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<?php 
+session_start();
+?>
+
 <head>
     
     <meta charset="UTF-8">
@@ -39,10 +43,7 @@
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item" >
-                            <a class="nav-link active" aria-current="page" href="iniciar_Sesion.php" >Iniciar Sesion</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Crear_cuenta.php">Crear Cuenta</a>
+                            <a class="nav-link active" aria-current="page" href="logout.php" >Cerrar Sesion</a>
                         </li>
                     </ul>
                 </div>
