@@ -50,7 +50,7 @@ delimiter //
 create procedure reg(in usuario varchar(25))
 begin
 
-    Insert into rup(Usuarios,Fecha_Hora)
+    Insert into r_ingresos(Usuarios,Fecha_Hora)
     values (usuario,now());
 
 end //

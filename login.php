@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo " Session exitosa ";
         
         $row = $result->fetch_assoc();
-        $sql = "call registrar_i('$usuario')";
+        $sql = "call reg('$usuario')";
         $result = $conn->query($sql);
 
         $_SESSION['usuario'] = $usuario;
